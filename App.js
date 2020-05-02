@@ -15,35 +15,66 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      temperature: '11',
+      temperature: '10',
+      temp_min: '0',
+      temp_max: '50',
+      wind_speed: '0',
+      wind_direction: '0',
+      humidity: '50',
+      weather_icon: 'icon',
     };
   }
 
-  /*componentDidMount() {
+  componentDidMount() {
     const options = {method: 'GET'};
+
+    /* today request */
     fetch(
-      'http://api.openweathermap.org/data/2.5/weather?q=Cannes,fr&appid=42cd7c2cc97723aa080b0a8b115f6d0d&units=metric',
+      'http://api.openweathermap.org/data/2.5/weather?q=Cannes,fr&appid=42cd7c2cc97723aa080b0a8b115f6d0d&units=metric&lang=fr',
       options,
     )
       .then(response => response.json())
       .then(
         data => {
-          console.log('ça marche presque');
           this.setState({temperature: data.main.temp});
-          console.log(this.state.temperature);
+          this.setState({temp_min: data.main.temp_min});
+          this.setState({temp_max: data.main.temp_max});
+          this.setState({humidity: data.main.humidity});
+          this.setState({wind_speed: data.wind.speed});
+          this.setState({wind_speed: data.wind.deg});
         },
         error => {
           console.log('error');
         },
       );
-  }*/
+
+    /* forecast request */
+    fetch(
+      'http://api.openweathermap.org/data/2.5/forecast?q=Cannes,fr&appid=42cd7c2cc97723aa080b0a8b115f6d0d&units=metric&lang=fr',
+      options,
+    )
+      .then(response => response.json())
+      .then(
+        data => {
+          console.log('ok');
+        },
+        error => {
+          console.log('error');
+        },
+      );
+    
+  }
+
+  
+
 
   render() {
-    return (
-      <ScrollView>
-        <ImageBackground
+    return ( 
+      <ImageBackground
           style={styles.bgImg}
           source={require('./img/MatinA.jpg')}>
+        <ScrollView>
+
           <View style={styles.containerG}>
             <View style={[styles.container, styles.header]}>
               <Text style={[styles.beige, styles.center, styles.fs30]}>
@@ -54,6 +85,7 @@ class App extends Component {
                 GRASSE
               </Text>
             </View>
+
             <View style={[styles.container, styles.middle, styles.flex]}>
               <Image
                 style={styles.temp}
@@ -64,6 +96,7 @@ class App extends Component {
                 {this.state.temperature} °C
               </Text>
             </View>
+
             <View style={[styles.container, styles.middle]}>
               <Image
                 style={styles.img}
@@ -71,22 +104,24 @@ class App extends Component {
               />
             </View>
 
-            <View style={styles.container}>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-              <Text> blebleble</Text>
-            </View>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
+            <Text style={[styles.fs60,styles.beige]}> blebleble</Text>
           </View>
-        </ImageBackground>
-      </ScrollView>
+        </ScrollView>
+      </ImageBackground>
     );
   }
 }

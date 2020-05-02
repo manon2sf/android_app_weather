@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   containerG: {
     marginTop: 50,
-    flex: 1,
+    //flex: 1,
     marginHorizontal: 30,
     alignItems: 'center',
   },
@@ -11,14 +11,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    flex: 1,
+    //flex: 1,
   },
   middle: {
-    flex: 2,
+    //flex: 2,
   },
   footer: {
-    flex: 1,
-    justifyContent: 'flex-end',
+    //flex: 1,
+    //justifyContent: 'flex-end',
     paddingBottom: 30,
   },
   fs30: {
