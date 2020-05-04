@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
     height: 100,
     marginHorizontal: 20,
   },
+  icon: {
+    width: 25,
+    height: 25,
+  },
 });
 
 export default styles;
